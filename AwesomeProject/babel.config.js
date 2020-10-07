@@ -1,0 +1,43 @@
+module.exports = {
+presets: [
+    'module:metro-react-native-babel-preset',
+    'module:react-native-dotenv'
+ ],
+
+  plugins: [
+    'import-glob',
+    [
+      'module-resolver',
+      {
+        root: ['.'],
+        extensions: [
+          '.ios.js',
+          '.android.js',
+          '.js',
+          '.jsx',
+          '.ts',
+          '.tsx',
+          '.json',
+        ],
+        alias: {
+          '@app': './src/app',
+          '@assets': './src/app/assets',
+          '@components': './src/app/components',
+          '@config': './src/config',
+          '@constants': './src/constants',
+          '@screens': './src/app/screens',
+          '@services': './src/services',
+          '@context': './src/context',
+        },
+      },
+    ],
+    [
+      ["dotenv-import", {
+        "safe": true,
+        "allowUndefined": true
+      }]
+    ]
+  ],
+  
+};
+
